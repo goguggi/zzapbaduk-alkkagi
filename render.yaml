@@ -1,0 +1,14 @@
+# render.yaml — Render.com 블루프린트 (Node 웹 서비스, 무료 플랜, HTTPS 자동)
+# GitHub 저장소를 Render 에 연결하면 이 설정으로 자동 배포됩니다.
+services:
+  - type: web
+    name: zzapbaduk-alkkagi
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm install
+    startCommand: node server.js
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 20.11.1
