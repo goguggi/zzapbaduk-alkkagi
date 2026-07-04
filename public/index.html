@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>짭바둑 · 온라인 알까기</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <h1 class="logo">⚫ 짭바둑 <span>온라인 알까기</span> ⚪</h1>
+    </header>
+
+    <!-- 상태 표시줄: 내 색 / 턴 표시 / 타이머 -->
+    <section id="statusbar" class="statusbar hidden">
+      <div class="status-item">
+        <span class="label">내 돌</span>
+        <span id="myColor" class="value">-</span>
+      </div>
+      <div class="status-item turn-item">
+        <span class="label">현재 턴</span>
+        <span id="turnIndicator" class="value">-</span>
+      </div>
+      <div class="status-item">
+        <span class="label">남은 시간</span>
+        <span id="timer" class="value timer">15</span>
+      </div>
+    </section>
+
+    <!-- 게임판 -->
+    <section class="board-wrap">
+      <canvas id="board" width="600" height="600"></canvas>
+
+      <!-- 오버레이: 대기/시작/결과 화면 -->
+      <div id="overlay" class="overlay">
+        <div class="overlay-card">
+          <h2 id="overlayTitle">환영합니다</h2>
+          <p id="overlayMsg">아래 버튼을 눌러 상대를 찾아보세요.</p>
+          <button id="findBtn" class="btn">상대 찾기</button>
+          <button id="rematchBtn" class="btn hidden">재대국</button>
+          <div id="spinner" class="spinner hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <p class="hint">돌을 마우스로 <b>드래그</b>했다가 놓으면 그 반대 방향으로 튕겨 나갑니다. 상대 돌 3개를 모두 판 밖으로 밀어내면 승리!</p>
+    <footer class="foot">Vanilla JS · HTML5 Canvas · Node.js · Socket.io</footer>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="shared/physics.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

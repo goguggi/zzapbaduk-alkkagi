@@ -1,0 +1,27 @@
+{
+  "name": "zzapbaduk-alkkagi",
+  "version": "1.0.0",
+  "description": "실시간 온라인 멀티플레이어 알까기 게임 (Vanilla JS + Socket.io)",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "알까기",
+    "alkkagi",
+    "socket.io",
+    "multiplayer",
+    "canvas"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5"
+  }
+}
