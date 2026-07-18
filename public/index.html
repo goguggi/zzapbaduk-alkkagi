@@ -24,27 +24,66 @@
       </div>
       <div class="status-item">
         <span class="label">남은 시간</span>
-        <span id="timer" class="value timer">15</span>
+        <span id="timer" class="value timer">-</span>
       </div>
+    </section>
+
+    <!-- 배치 단계 안내 바 -->
+    <section id="placebar" class="placebar hidden">
+      <span id="placeMsg">내 진영에 돌 3개를 원하는 위치로 드래그하세요!</span>
+      <button id="placeDoneBtn" class="btn small">배치 완료 ✔</button>
     </section>
 
     <!-- 게임판 -->
     <section class="board-wrap">
       <canvas id="board" width="600" height="600"></canvas>
 
-      <!-- 오버레이: 대기/시작/결과 화면 -->
+      <!-- 오버레이 -->
       <div id="overlay" class="overlay">
-        <div class="overlay-card">
+
+        <!-- 메인 로비 -->
+        <div id="lobbyView" class="overlay-card lobby-card">
+          <h2>🏠 메인 로비</h2>
+
+          <div class="lobby-section">
+            <h3>방 만들기</h3>
+            <input id="roomNameInput" type="text" maxlength="20" placeholder="방 이름 (예: 한 판 붙자)" />
+            <div class="color-pick">
+              <label class="color-opt"><input type="radio" name="colorPick" value="black" /> <span>⚫ 검은돌 (선공)</span></label>
+              <label class="color-opt"><input type="radio" name="colorPick" value="white" /> <span>⚪ 흰돌</span></label>
+              <label class="color-opt"><input type="radio" name="colorPick" value="random" checked /> <span>🎲 랜덤</span></label>
+            </div>
+            <button id="createRoomBtn" class="btn">방 만들기</button>
+          </div>
+
+          <div class="lobby-section">
+            <h3>방 목록 <button id="refreshBtn" class="btn tiny ghost">새로고침 ↻</button></h3>
+            <ul id="roomList" class="room-list">
+              <li class="room-empty">아직 열린 방이 없어요.</li>
+            </ul>
+          </div>
+
+          <div class="lobby-section">
+            <button id="quickBtn" class="btn ghost wide">⚡ 빠른 매칭 (색 랜덤)</button>
+          </div>
+        </div>
+
+        <!-- 대기/결과 등 일반 카드 -->
+        <div id="msgView" class="overlay-card hidden">
           <h2 id="overlayTitle">환영합니다</h2>
-          <p id="overlayMsg">아래 버튼을 눌러 상대를 찾아보세요.</p>
-          <button id="findBtn" class="btn">상대 찾기</button>
-          <button id="rematchBtn" class="btn hidden">재대국</button>
+          <p id="overlayMsg">-</p>
+          <div class="btn-row">
+            <button id="rematchBtn" class="btn hidden">재대국</button>
+            <button id="lobbyBtn" class="btn ghost hidden">로비로</button>
+            <button id="cancelBtn" class="btn ghost hidden">취소</button>
+          </div>
           <div id="spinner" class="spinner hidden"></div>
         </div>
+
       </div>
     </section>
 
-    <p class="hint">돌을 마우스로 <b>드래그</b>했다가 놓으면 그 반대 방향으로 튕겨 나갑니다. 상대 돌 3개를 모두 판 밖으로 밀어내면 승리!</p>
+    <p class="hint">돌을 <b>드래그</b>했다가 놓으면 반대 방향으로 튕겨 나갑니다. <b>너무 세게 치면 내 돌도 판 밖으로!</b> 상대 돌 3개를 모두 밀어내면 승리!</p>
     <footer class="foot">Vanilla JS · HTML5 Canvas · Node.js · Socket.io</footer>
   </div>
 

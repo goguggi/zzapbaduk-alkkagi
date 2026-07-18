@@ -129,6 +129,99 @@ body {
 .btn:hover { background: #6ba0ff; }
 .btn:active { transform: scale(0.96); }
 .btn.hidden { display: none; }
+.btn.ghost {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--text);
+}
+.btn.ghost:hover { background: var(--panel-2); }
+.btn.small { padding: 8px 16px; font-size: 14px; }
+.btn.tiny { padding: 3px 10px; font-size: 12px; font-weight: 600; }
+.btn.wide { width: 100%; }
+.btn-row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+
+/* 로비 */
+.lobby-card { max-width: 380px; max-height: 92%; overflow-y: auto; }
+.lobby-section { margin-top: 16px; text-align: left; }
+.lobby-section h3 {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.lobby-section input[type="text"] {
+  width: 100%;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  padding: 10px 12px;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.lobby-section input[type="text"]:focus { outline: 1px solid var(--accent); }
+.color-pick { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
+.color-opt {
+  flex: 1;
+  min-width: 90px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 6px;
+  font-size: 13px;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.color-opt input { display: none; }
+.color-opt:has(input:checked) {
+  border-color: var(--accent);
+  background: rgba(79,140,255,0.12);
+}
+.lobby-card .btn { width: 100%; }
+.lobby-section h3 .btn { width: auto; }
+
+.room-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 180px;
+  overflow-y: auto;
+}
+.room-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 14px;
+}
+.room-list .room-name { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.room-list .room-color { font-size: 12px; color: var(--muted); white-space: nowrap; }
+.room-list .btn { width: auto; }
+.room-empty { color: var(--muted); font-size: 13px; justify-content: center !important; }
+
+/* 배치 단계 바 */
+.placebar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: rgba(79,140,255,0.10);
+  border: 1px solid rgba(79,140,255,0.4);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 14px;
+}
+.placebar.hidden { display: none; }
+.placebar .btn { flex-shrink: 0; }
 
 .spinner {
   margin: 14px auto 0;
